@@ -279,9 +279,11 @@ reader.readAsDataURL(profilePic);
 
 document.getElementById('resumePreview').style.display = 'block';
 });
-
 function downloadResume() {
-const doc = new PDF();
+    const { jsPDF } = window.jspdf;
+    const doc = new jsPDF();
+
+    doc.setFontSize(16);
 doc.text("Resume", 20, 20);
 doc.text("Name: " + document.getElementById('previewName').textContent, 20, 30);
 doc.text("Father's Name: " + document.getElementById('previewFatherName').textContent, 20, 40);
